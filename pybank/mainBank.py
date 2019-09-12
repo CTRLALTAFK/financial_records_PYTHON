@@ -41,13 +41,7 @@ avg_change = sum(revenue_change) / len(revenue_change)
 increase_month = revenue_change.index(max(revenue_change)) + 1
 decrease_month = revenue_change.index(min(revenue_change)) + 1 
 
-#Printing
-print(f"Financial Analysis \n -------------------------------------------------------")
-print(f"Total months:  {total_months}")
-print(f"Total Profit/losses: ${sum(total_profit)}")
-print(f"Average Change: {avg_change}")
-print(f"Greatest Increase: {total_months[increase_month]}  $({greatest_increase}) ") 
-print(f"Greatest Decrease:{total_months[decrease_month]} $({greatest_decrease}) ")
+#Printing and writing
 
 # Specify the file to write to
 output_path = os.path.join("Financial_Analysis.txt")
@@ -55,11 +49,12 @@ output_path = os.path.join("Financial_Analysis.txt")
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w', newline='') as txtfile:
 
-    #Writing
-    txtfile.write("Financial Analysis \n --------------------------------------\n")
-    txtfile.write(f"Total Months: {len(total_months)} \n")
-    txtfile.write(f"Total: ${sum(total_profit)}\n")
-    txtfile.write(f"Average Change: {avg_change}\n")
-    txtfile.write(f"Greatest Increase in Profits: {total_months[increase_month]} (${greatest_increase})\n")
-    txtfile.write(f"Greatest Decrease in Profits: {total_months[decrease_month]} (${greatest_decrease})\n")
+    header = (f"Financial Analysis \n -------------------------------------------------------\n"
+            f"Total months: {len(total_months)}\n"
+            f"Total Profit/losses: ${sum(total_profit)}\n"
+            f"Average Change: ${avg_change:.2f}\n"
+            f"Greatest Increase in Profits: {total_months[increase_month]}  $({greatest_increase}) \n" 
+            f"Greatest Decrease in Profits:{total_months[decrease_month]} $({greatest_decrease}) \n")
+    print(header)
+    txtfile.write(header)
 
