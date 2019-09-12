@@ -38,20 +38,20 @@ with open(csvpath, newline='') as csvfile:
             Li.append(1)
         else: Ot.append(1)
         
-    #Create dictionary with votes
+    #Created dictionary with votes
     candidate_total = {"Khan":len(Khan), "Correy":len(Correy), "Li":len(Li), "O'tooley":len(Ot)}
     #Loop through candidates and votes if value = max then winner = candidate
     for candidate, value in candidate_total.items():
         if value > Maxvotes:
             Maxvotes = value
             winner = candidate
-    #Create function for Percentages
+    #function for Percentages
     def percent(votes,total): 
-        return float(total)/float(votes)*100
-    Kpercent = round(percent(len(total_votes), len(Khan)), 4)
-    Cpercent = round(percent(len(total_votes), len(Correy)), 4)
-    Lpercent = round(percent(len(total_votes), len(Li)), 4)
-    Opercent = round(percent(len(total_votes), len(Ot)), 4)
+        return round(float(total)/float(votes)*100, 3)
+    Kpercent = percent(len(total_votes), len(Khan))
+    Cpercent = percent(len(total_votes), len(Correy))
+    Lpercent = percent(len(total_votes), len(Li))
+    Opercent = percent(len(total_votes), len(Ot))
 
 #Printing
 print(f'Election Results \n --------------------------- \n')
