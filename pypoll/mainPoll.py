@@ -48,15 +48,15 @@ with open(csvpath, newline='') as csvfile:
     #Create function for Percentages
     def percent(votes,total): 
         return float(total)/float(votes)*100
-    Kpercent = percent(len(total_votes), len(Khan))
-    Cpercent = round(percent(len(total_votes), len(Correy)), 3)
-    Lpercent = round(percent(len(total_votes), len(Li)), 3)
-    Opercent = round(percent(len(total_votes), len(Ot)), 3)
+    Kpercent = round(percent(len(total_votes), len(Khan)), 4)
+    Cpercent = round(percent(len(total_votes), len(Correy)), 4)
+    Lpercent = round(percent(len(total_votes), len(Li)), 4)
+    Opercent = round(percent(len(total_votes), len(Ot)), 4)
 
 #Printing
 print(f'Election Results \n --------------------------- \n')
 print(f"Total Votes: {len(total_votes)}\n --------------------------- \n")
-print(f"Khan: {round(Kpercent,3)}%  ({len(Khan)})\n")
+print(f"Khan: {Kpercent}%  ({len(Khan)})\n")
 print(f"Correy: {Cpercent}% ({len(Correy)})\n")
 print(f"Li: {Lpercent}% ({len(Li)})\n")
 print(f"O'Tooley: {Opercent}% ({len(Ot)})\n----------------------------\n")
